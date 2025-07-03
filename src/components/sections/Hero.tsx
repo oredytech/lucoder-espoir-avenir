@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   const slogans = [
@@ -50,7 +51,7 @@ export const Hero = () => {
       ))}
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-800/50" />
       
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
@@ -61,11 +62,11 @@ export const Hero = () => {
           {slogans[currentSlogan]}
         </p>
         <div className="space-x-4">
-          <Button size="lg" className="bg-green-600 hover:bg-green-700">
-            <a href="#about">Découvrir nos actions</a>
+          <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+            <Link to="/qui-sommes-nous">Découvrir nos actions</Link>
           </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-black">
-            <a href="#donations">Faire un don</a>
+          <Button size="lg" variant="outline" asChild className="text-white border-white hover:bg-white hover:text-blue-900">
+            <Link to="/faire-un-don">Faire un don</Link>
           </Button>
         </div>
       </div>

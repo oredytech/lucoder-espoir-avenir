@@ -59,7 +59,7 @@ export const Actions = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Nos actions</h2>
-          <div className="w-24 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -67,14 +67,14 @@ export const Actions = () => {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <action.icon className="h-8 w-8 text-green-600" />
-                  <CardTitle className="text-lg text-green-700">{action.title}</CardTitle>
+                  <action.icon className="h-8 w-8 text-blue-600" />
+                  <CardTitle className="text-lg text-blue-700">{action.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-gray-700 text-sm leading-relaxed">{action.description}</p>
                 <div className="border-t pt-3">
-                  <p className="text-green-600 font-semibold text-sm">Objectif :</p>
+                  <p className="text-blue-600 font-semibold text-sm">Objectif :</p>
                   <p className="text-gray-600 text-sm italic">{action.objectif}</p>
                 </div>
               </CardContent>

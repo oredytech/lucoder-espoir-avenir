@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const About = () => {
@@ -45,14 +44,14 @@ export const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Qui sommes-nous ?</h2>
-          <div className="w-24 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
         {/* Histoire */}
         <div className="mb-16">
           <Card className="max-w-4xl mx-auto">
             <CardHeader>
-              <CardTitle className="text-2xl text-green-700">« LUCODER une semence d'espoir née au cœur du chaos »</CardTitle>
+              <CardTitle className="text-2xl text-blue-700">« LUCODER une semence d'espoir née au cœur du chaos »</CardTitle>
             </CardHeader>
             <CardContent className="text-gray-700 leading-relaxed space-y-4">
               <p>
@@ -75,7 +74,7 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl text-green-700">Notre Mission</CardTitle>
+              <CardTitle className="text-xl text-blue-700">Notre Mission</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700">
@@ -86,7 +85,7 @@ export const About = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl text-green-700">Notre Vision</CardTitle>
+              <CardTitle className="text-xl text-blue-700">Notre Vision</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700">
@@ -102,7 +101,7 @@ export const About = () => {
           <div className="grid md:grid-cols-2 gap-4">
             {objectives.map((objective, index) => (
               <div key={index} className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-1">
+                <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-1">
                   {index + 1}
                 </div>
                 <p className="text-gray-700">{objective}</p>
@@ -118,7 +117,7 @@ export const About = () => {
             {values.map((value, index) => (
               <Card key={index}>
                 <CardHeader>
-                  <CardTitle className="text-lg text-green-700">{value.title}</CardTitle>
+                  <CardTitle className="text-lg text-blue-700">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 text-sm">{value.description}</p>

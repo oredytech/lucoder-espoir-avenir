@@ -2,51 +2,57 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: "#about", label: "Qui sommes-nous ?" },
-    { href: "#actions", label: "Nos actions" },
-    { href: "#gallery", label: "Galerie" },
-    { href: "#advocacy", label: "Plaidoyer" },
-    { href: "#partnership", label: "Partenariat" },
-    { href: "#donations", label: "Faire un don" },
-    { href: "#contact", label: "Contact" },
+    { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
+    { href: "/nos-actions", label: "Nos actions" },
+    { href: "/galerie", label: "Galerie" },
+    { href: "/plaidoyer", label: "Plaidoyer" },
+    { href: "/partenariat", label: "Partenariat" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
-              src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=100&h=50&fit=crop"
+              src="/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png"
               alt="LUCODER Logo"
-              className="h-10 w-20 object-cover rounded"
+              className="h-12 w-auto object-contain"
             />
-            <span className="ml-2 text-xl font-bold text-green-700">LUCODER</span>
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                to={item.href}
+                className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
+            <Button 
+              asChild 
+              className="bg-orange-500 hover:bg-orange-600 text-white ml-4"
+            >
+              <Link to="/faire-un-don">Faire un don</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -55,18 +61,26 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-green-600 transition-colors"
+                  to={item.href}
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
+              <div className="px-3 py-2">
+                <Button 
+                  asChild 
+                  className="bg-orange-500 hover:bg-orange-600 text-white w-full"
+                >
+                  <Link to="/faire-un-don">Faire un don</Link>
+                </Button>
+              </div>
             </div>
           </div>
         )}

@@ -1,12 +1,12 @@
 
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Actions } from "@/components/sections/Actions";
-import { Gallery } from "@/components/sections/Gallery";
-import { Advocacy } from "@/components/sections/Advocacy";
-import { Partnership } from "@/components/sections/Partnership";
-import { Donations } from "@/components/sections/Donations";
-import { Contact } from "@/components/sections/Contact";
+import { AboutPreview } from "@/components/sections/AboutPreview";
+import { ActionsPreview } from "@/components/sections/ActionsPreview";
+import { GalleryPreview } from "@/components/sections/GalleryPreview";
+import { AdvocacyPreview } from "@/components/sections/AdvocacyPreview";
+import { PartnershipPreview } from "@/components/sections/PartnershipPreview";
+import { DonationsPreview } from "@/components/sections/DonationsPreview";
+import { ContactPreview } from "@/components/sections/ContactPreview";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 
@@ -15,13 +15,13 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <About />
-      <Actions />
-      <Gallery />
-      <Advocacy />
-      <Partnership />
-      <Donations />
-      <Contact />
+      <AboutPreview />
+      <ActionsPreview />
+      <GalleryPreview />
+      <AdvocacyPreview />
+      <PartnershipPreview />
+      <DonationsPreview />
+      <ContactPreview />
       <Footer />
     </div>
   );

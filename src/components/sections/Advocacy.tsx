@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Heart, GraduationCap, Wheat, TreePine, Handshake } from "lucide-react";
@@ -60,7 +59,7 @@ export const Advocacy = () => {
           <p className="text-xl text-gray-600 mb-6">
             Donner une voix aux sans-voix. Défendre les droits. Influencer les politiques.
           </p>
-          <div className="w-24 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
         {/* Description */}
@@ -76,7 +75,7 @@ export const Advocacy = () => {
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {objectives.map((objective, index) => (
               <div key={index} className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0">
+                <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0">
                   {index + 1}
                 </div>
                 <p className="text-gray-700">{objective}</p>
@@ -93,8 +92,8 @@ export const Advocacy = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-center space-x-3">
-                    <domain.icon className="h-8 w-8 text-green-600" />
-                    <CardTitle className="text-lg text-green-700">{domain.title}</CardTitle>
+                    <domain.icon className="h-8 w-8 text-blue-600" />
+                    <CardTitle className="text-lg text-blue-700">{domain.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -111,7 +110,7 @@ export const Advocacy = () => {
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {moyensAction.map((moyen, index) => (
               <div key={index} className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-gray-700">{moyen}</p>
               </div>
             ))}
@@ -122,7 +121,7 @@ export const Advocacy = () => {
         <div className="text-center">
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
-              <CardTitle className="text-xl text-green-700">Vous souhaitez nous soutenir ?</CardTitle>
+              <CardTitle className="text-xl text-blue-700">Vous souhaitez nous soutenir ?</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-700">
@@ -132,12 +131,12 @@ export const Advocacy = () => {
                 Contactez notre équipe Plaidoyer et relations Institutionnelles :
               </p>
               <div className="space-y-2">
-                <p className="text-green-600 font-semibold">E-mail : plaidoyer@lucoder.org</p>
+                <p className="text-blue-600 font-semibold">E-mail : plaidoyer@lucoder.org</p>
                 <p className="text-gray-600">
                   Tél. : +243 994 133 206 ; +243 998 673 879 ; +243 998 398 514 ; +243 895 049 219
                 </p>
               </div>
-              <Button className="bg-green-600 hover:bg-green-700">
+              <Button className="bg-blue-600 hover:bg-blue-700">
                 Nous contacter
               </Button>
             </CardContent>

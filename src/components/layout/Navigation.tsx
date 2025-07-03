@@ -18,7 +18,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-sm border-b border-white/20 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
@@ -30,19 +30,19 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
+                className="text-white/90 hover:text-white transition-colors text-sm font-medium uppercase tracking-wide"
               >
                 {item.label}
               </Link>
             ))}
             <Button 
               asChild 
-              className="bg-orange-500 hover:bg-orange-600 text-white ml-4"
+              className="bg-orange-500 hover:bg-orange-600 text-white ml-4 uppercase tracking-wide"
             >
               <Link to="/faire-un-don">Faire un don</Link>
             </Button>
@@ -52,7 +52,7 @@ export const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden text-white hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -62,12 +62,12 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-blue-900/95 backdrop-blur-sm border-t border-white/20">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="block px-3 py-2 text-white/90 hover:text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

@@ -1,18 +1,18 @@
 
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { Contact } from "@/components/sections/Contact";
+import { Contact as ContactSection } from "@/components/sections/Contact";
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
       <div className="pt-16">
-        <Contact />
+        <ContactSection />
       </div>
       <Footer />
     </div>
   );
 };
 
-export default Contact;
+export default ContactPage;

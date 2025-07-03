@@ -11,7 +11,7 @@ import Galerie from "./pages/Galerie";
 import Plaidoyer from "./pages/Plaidoyer";
 import Partenariat from "./pages/Partenariat";
 import FaireUnDon from "./pages/FaireUnDon";
-import Contact from "./pages/Contact";
+import ContactPage from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
@@ -31,10 +31,9 @@ const App = () => (
           <Route path="/plaidoyer" element={<Plaidoyer />} />
           <Route path="/partenariat" element={<Partenariat />} />
           <Route path="/faire-un-don" element={<FaireUnDon />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<Blog />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

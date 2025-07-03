@@ -2,56 +2,76 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Shield, Heart, GraduationCap } from "lucide-react";
+import { Shield, Heart, GraduationCap, Megaphone } from "lucide-react";
 
 export const AdvocacyPreview = () => {
   const domains = [
     {
       icon: Shield,
       title: "Droits humains et protection",
-      description: "Lutter contre le VBG, la traite des enfants, les arrestations arbitraires, et exiger justice pour les survivants."
+      description: "Lutter contre le VBG, la traite des enfants, les arrestations arbitraires, et exiger justice pour les survivants.",
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=250&fit=crop"
     },
     {
       icon: Heart,
-      title: "Santé et bien-être communautaire",
-      description: "Revendiquer un meilleur accès aux soins, à la santé mentale, et aux infrastructures médicales en milieu rural."
+      title: "Santé et bien-être communautaire", 
+      description: "Revendiquer un meilleur accès aux soins, à la santé mentale, et aux infrastructures médicales en milieu rural.",
+      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=400&h=250&fit=crop"
     },
     {
       icon: GraduationCap,
       title: "Éducation pour tous",
-      description: "Mobiliser les autorités pour des écoles accessibles, sûres et inclusives pour les filles, enfants déplacés et enfants handicapés."
+      description: "Mobiliser les autorités pour des écoles accessibles, sûres et inclusives pour les filles, enfants déplacés et enfants handicapés.",
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=250&fit=crop"
     }
   ];
 
   return (
-    <section id="advocacy" className="py-20 bg-white">
+    <section id="advocacy" className="py-20 bg-gradient-to-r from-rose-50 to-orange-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Plaidoyer</h2>
-          <p className="text-xl text-gray-600 mb-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="flex justify-center mb-4">
+            <Megaphone className="h-16 w-16 text-rose-600" />
+          </div>
+          <h2 className="text-4xl font-bold text-rose-800 mb-4">Plaidoyer</h2>
+          <p className="text-xl text-rose-600 mb-6">
             Donner une voix aux sans-voix. Défendre les droits. Influencer les politiques.
           </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-rose-600 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {domains.map((domain, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center space-x-3">
-                  <domain.icon className="h-8 w-8 text-blue-600" />
-                  <CardTitle className="text-lg text-blue-700">{domain.title}</CardTitle>
+            <Card 
+              key={index} 
+              className="group hover:shadow-xl transition-all duration-300 hover-scale border-rose-200 bg-white animate-fade-in"
+              style={{ 
+                animationDelay: `${index * 0.2}s`, 
+                animationFillMode: 'both' 
+              }}
+            >
+              <div className="relative overflow-hidden">
+                <img 
+                  src={domain.image} 
+                  alt={domain.title}
+                  className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-3 right-3 bg-white rounded-full p-2 shadow-lg">
+                  <domain.icon className="h-6 w-6 text-rose-600" />
                 </div>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-lg text-rose-700">{domain.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 text-sm">{domain.description}</p>
+                <p className="text-rose-600 text-sm">{domain.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="text-center">
-          <Button asChild className="bg-blue-600 hover:bg-blue-700">
+        <div className="text-center animate-fade-in" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
+          <Button asChild className="bg-rose-600 hover:bg-rose-700">
             <Link to="/plaidoyer">En savoir plus sur notre plaidoyer</Link>
           </Button>
         </div>

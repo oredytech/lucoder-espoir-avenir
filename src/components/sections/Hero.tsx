@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -122,8 +121,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images at bottom right - Horizontal layout with overlay text */}
-      <div className="absolute bottom-8 right-8 hidden lg:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+      {/* Preview Images at bottom right - Horizontal layout with overlay text - Now visible on medium screens */}
+      <div className="absolute bottom-8 right-8 hidden md:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
             key={index}
@@ -170,13 +169,6 @@ export const Hero = () => {
             }`}
           />
         ))}
-      </div>
-
-      {/* Date indicator like National Geographic */}
-      <div className="absolute top-1/2 right-8 transform -translate-y-1/2 hidden xl:block">
-        <div className="writing-mode-vertical text-white/60 text-sm tracking-widest">
-          EXPLORE • 02/04
-        </div>
       </div>
     </section>
   );

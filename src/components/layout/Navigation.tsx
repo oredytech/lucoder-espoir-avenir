@@ -1,13 +1,15 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
+    { href: "/", label: "Accueil" },
     { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
     { href: "/nos-actions", label: "Nos actions" },
     { href: "/galerie", label: "Galerie" },
@@ -17,8 +19,21 @@ export const Navigation = () => {
     { href: "/contact", label: "Contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-sm border-b border-white/20 z-50">
+    <nav className={`fixed top-0 w-full transition-all duration-300 border-b border-white/20 z-50 ${
+      isScrolled 
+        ? 'bg-blue-900/95 backdrop-blur-md' 
+        : 'bg-transparent backdrop-blur-sm'
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
@@ -48,20 +63,32 @@ export const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Now visible on medium screens */}
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:bg-white/10"
+            className="md:hidden text-white hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
+
+          {/* Medium screens menu */}
+          <div className="hidden md:flex lg:hidden items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-white/10"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile and Medium screens Menu */}
         {isOpen && (
-          <div className="lg:hidden">
+          <div className="md:block lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-blue-900/95 backdrop-blur-sm border-t border-white/20">
               {navItems.map((item) => (
                 <Link

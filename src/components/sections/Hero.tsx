@@ -8,28 +8,28 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop",
+      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=1080&fit=crop",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
       previewImage: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&h=1080&fit=crop",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop",
       title: "LUCODER",
       subtitle: "Justice et sécurité",
       previewImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-      image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1920&h=1080&fit=crop",
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1920&h=1080&fit=crop",
       title: "LUCODER",
       subtitle: "Congo pacifié",
       previewImage: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=300&h=200&fit=crop"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=1920&h=1080&fit=crop",
       title: "LUCODER",
       subtitle: "Avenir rural",
       previewImage: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop"
@@ -122,34 +122,37 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images at bottom right - Now larger with slogans */}
-      <div className="absolute bottom-8 right-8 hidden lg:flex flex-col space-y-4 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+      {/* Preview Images at bottom right - Horizontal layout with overlay text */}
+      <div className="absolute bottom-8 right-8 hidden lg:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
             key={index}
             className={`relative group cursor-pointer transition-all duration-300 ${
-              index === currentSlide ? 'scale-110 opacity-100' : 'opacity-70 hover:opacity-90'
+              index === currentSlide ? 'scale-105 opacity-100' : 'opacity-80 hover:opacity-100'
             }`}
             onClick={() => setCurrentSlide(index)}
           >
-            {/* Slogan above image */}
-            <div className="absolute -top-16 left-0 right-0 z-10">
-              <p className={`text-white text-xs leading-tight transition-opacity duration-300 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
-              }`}>
-                {item.slogan.length > 60 ? item.slogan.substring(0, 60) + '...' : item.slogan}
-              </p>
-            </div>
-            
             <img 
               src={item.previewImage}
               alt={`Preview ${index + 1}`}
-              className={`w-32 h-20 object-cover rounded border-2 transition-all duration-300 ${
+              className={`w-28 h-16 object-cover rounded border-2 transition-all duration-300 ${
                 index === currentSlide 
                   ? 'border-orange-400 shadow-lg shadow-orange-400/50' 
                   : 'border-white/30 group-hover:border-white'
               }`}
             />
+            
+            {/* Slogan overlay */}
+            <div className="absolute inset-0 bg-black/50 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2">
+              <p className="text-white text-xs text-center leading-tight">
+                {item.slogan.length > 40 ? item.slogan.substring(0, 40) + '...' : item.slogan}
+              </p>
+            </div>
+            
+            {/* Active indicator */}
+            {index === currentSlide && (
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rounded-full"></div>
+            )}
           </div>
         ))}
       </div>

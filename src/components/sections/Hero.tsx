@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -101,27 +102,27 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side - Statistics positioned vertically in the middle */}
-        <div className="hidden lg:flex flex-col justify-center space-y-8 animate-fade-in" style={{ animationDelay: '0.9s', animationFillMode: 'both' }}>
+        {/* Right Side - Statistics positioned vertically in the middle - Now visible on medium screens */}
+        <div className="hidden md:flex flex-col justify-center space-y-6 lg:space-y-8 animate-fade-in" style={{ animationDelay: '0.9s', animationFillMode: 'both' }}>
           <div className="text-center">
-            <Heart className="h-8 w-8 text-red-400 mx-auto mb-2" />
-            <p className="text-2xl font-bold text-white">29</p>
-            <p className="text-sm text-blue-200">Années</p>
+            <Heart className="h-6 w-6 lg:h-8 lg:w-8 text-red-400 mx-auto mb-2" />
+            <p className="text-xl lg:text-2xl font-bold text-white">29</p>
+            <p className="text-xs lg:text-sm text-blue-200">Années</p>
           </div>
           <div className="text-center">
-            <Users className="h-8 w-8 text-green-400 mx-auto mb-2" />
-            <p className="text-2xl font-bold text-white">10K+</p>
-            <p className="text-sm text-blue-200">Vies transformées</p>
+            <Users className="h-6 w-6 lg:h-8 lg:w-8 text-green-400 mx-auto mb-2" />
+            <p className="text-xl lg:text-2xl font-bold text-white">10K+</p>
+            <p className="text-xs lg:text-sm text-blue-200">Vies transformées</p>
           </div>
           <div className="text-center">
-            <Shield className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
-            <p className="text-2xl font-bold text-white">50+</p>
-            <p className="text-sm text-blue-200">Communautés</p>
+            <Shield className="h-6 w-6 lg:h-8 lg:w-8 text-yellow-400 mx-auto mb-2" />
+            <p className="text-xl lg:text-2xl font-bold text-white">50+</p>
+            <p className="text-xs lg:text-sm text-blue-200">Communautés</p>
           </div>
         </div>
       </div>
 
-      {/* Preview Images at bottom right - Horizontal layout with overlay text - Now visible on medium screens */}
+      {/* Preview Images at bottom right - Larger size with overlay text - Now visible on medium screens */}
       <div className="absolute bottom-8 right-8 hidden md:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
@@ -134,7 +135,7 @@ export const Hero = () => {
             <img 
               src={item.previewImage}
               alt={`Preview ${index + 1}`}
-              className={`w-28 h-16 object-cover rounded border-2 transition-all duration-300 ${
+              className={`w-36 h-24 md:w-32 md:h-20 lg:w-36 lg:h-24 object-cover rounded border-2 transition-all duration-300 ${
                 index === currentSlide 
                   ? 'border-orange-400 shadow-lg shadow-orange-400/50' 
                   : 'border-white/30 group-hover:border-white'
@@ -142,9 +143,9 @@ export const Hero = () => {
             />
             
             {/* Slogan overlay */}
-            <div className="absolute inset-0 bg-black/50 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2">
-              <p className="text-white text-xs text-center leading-tight">
-                {item.slogan.length > 40 ? item.slogan.substring(0, 40) + '...' : item.slogan}
+            <div className="absolute inset-0 bg-black/60 rounded flex items-center justify-center p-2">
+              <p className="text-white text-xs text-center leading-tight font-medium">
+                {item.slogan.length > 35 ? item.slogan.substring(0, 35) + '...' : item.slogan}
               </p>
             </div>
             
@@ -153,21 +154,6 @@ export const Hero = () => {
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rounded-full"></div>
             )}
           </div>
-        ))}
-      </div>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {heroData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white scale-125' 
-                : 'bg-white/40 hover:bg-white/60'
-            }`}
-          />
         ))}
       </div>
     </section>

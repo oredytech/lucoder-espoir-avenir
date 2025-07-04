@@ -9,21 +9,21 @@ export const Hero = () => {
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
       image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=1080&fit=crop",
-      title: "LUCODER",
+      title: "1996",
       subtitle: "Reconstruire l'avenir",
       previewImage: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop",
-      title: "LUCODER",
+      title: "KIVU",
       subtitle: "Justice et sécurité",
       previewImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1920&h=1080&fit=crop",
-      title: "LUCODER",
+      title: "Local",
       subtitle: "Congo pacifié",
       previewImage: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=300&h=200&fit=crop"
     },
@@ -73,9 +73,6 @@ export const Hero = () => {
         {/* Left Content */}
         <div className="text-white space-y-6 max-w-2xl">
           <div className="animate-fade-in">
-            <div className="text-sm font-medium text-blue-300 mb-2 tracking-wide">
-              INSIDE THE
-            </div>
             <h1 className="text-6xl md:text-8xl font-bold mb-4 leading-none">
               LUCODER
             </h1>
@@ -122,8 +119,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images at bottom right - Larger size with overlay text - Now visible on medium screens */}
-      <div className="absolute bottom-8 right-8 hidden md:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+      {/* Preview Cards - Overlapping effect with 40% overflow into main image */}
+      <div className="absolute bottom-0 right-8 hidden md:flex space-x-3 animate-slide-in-right transform translate-y-[-40%]" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
             key={index}
@@ -132,26 +129,31 @@ export const Hero = () => {
             }`}
             onClick={() => setCurrentSlide(index)}
           >
-            <img 
-              src={item.previewImage}
-              alt={`Preview ${index + 1}`}
-              className={`w-36 h-24 md:w-32 md:h-20 lg:w-36 lg:h-24 object-cover rounded border-2 transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'border-orange-400 shadow-lg shadow-orange-400/50' 
-                  : 'border-white/30 group-hover:border-white'
-              }`}
-            />
-            
-            {/* Slogan overlay */}
-            <div className="absolute inset-0 bg-black/60 rounded flex items-center justify-center p-2">
-              <p className="text-white text-xs text-center leading-tight font-medium">
-                {item.slogan.length > 35 ? item.slogan.substring(0, 35) + '...' : item.slogan}
-              </p>
+            <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
+              <img 
+                src={item.previewImage}
+                alt={`Preview ${index + 1}`}
+                className="w-36 h-24 md:w-32 md:h-20 lg:w-36 lg:h-24 object-cover"
+              />
+              
+              {/* Title overlay at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                <h3 className="text-white text-sm font-bold text-center">
+                  {item.title}
+                </h3>
+              </div>
+              
+              {/* Slogan overlay on hover */}
+              <div className="absolute inset-0 bg-black/70 rounded-lg flex items-center justify-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-xs text-center leading-tight font-medium">
+                  {item.slogan.length > 35 ? item.slogan.substring(0, 35) + '...' : item.slogan}
+                </p>
+              </div>
             </div>
             
             {/* Active indicator */}
             {index === currentSlide && (
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rounded-full"></div>
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rounded-full"></div>
             )}
           </div>
         ))}

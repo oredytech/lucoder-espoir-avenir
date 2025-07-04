@@ -10,25 +10,29 @@ export const Hero = () => {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
       image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&h=1080&fit=crop",
       title: "LUCODER",
-      subtitle: "Reconstruire l'avenir"
+      subtitle: "Reconstruire l'avenir",
+      previewImage: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&h=1080&fit=crop",
       title: "LUCODER",
-      subtitle: "Justice et sécurité"
+      subtitle: "Justice et sécurité",
+      previewImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
       image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1920&h=1080&fit=crop",
       title: "LUCODER",
-      subtitle: "Congo pacifié"
+      subtitle: "Congo pacifié",
+      previewImage: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=300&h=200&fit=crop"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
       image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop",
       title: "LUCODER",
-      subtitle: "Avenir rural"
+      subtitle: "Avenir rural",
+      previewImage: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop"
     }
   ];
 
@@ -118,32 +122,36 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images at bottom right */}
-      <div className="absolute bottom-8 right-8 hidden lg:flex space-x-4 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
-        <div className="relative group cursor-pointer">
-          <img 
-            src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=120&h=80&fit=crop" 
-            alt="Formation preview"
-            className="w-20 h-12 object-cover rounded border-2 border-white/30 group-hover:border-white transition-all duration-300"
-          />
-          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-              Formation
+      {/* Preview Images at bottom right - Now larger with slogans */}
+      <div className="absolute bottom-8 right-8 hidden lg:flex flex-col space-y-4 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+        {heroData.map((item, index) => (
+          <div 
+            key={index}
+            className={`relative group cursor-pointer transition-all duration-300 ${
+              index === currentSlide ? 'scale-110 opacity-100' : 'opacity-70 hover:opacity-90'
+            }`}
+            onClick={() => setCurrentSlide(index)}
+          >
+            {/* Slogan above image */}
+            <div className="absolute -top-16 left-0 right-0 z-10">
+              <p className={`text-white text-xs leading-tight transition-opacity duration-300 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
+              }`}>
+                {item.slogan.length > 60 ? item.slogan.substring(0, 60) + '...' : item.slogan}
+              </p>
             </div>
+            
+            <img 
+              src={item.previewImage}
+              alt={`Preview ${index + 1}`}
+              className={`w-32 h-20 object-cover rounded border-2 transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'border-orange-400 shadow-lg shadow-orange-400/50' 
+                  : 'border-white/30 group-hover:border-white'
+              }`}
+            />
           </div>
-        </div>
-        <div className="relative group cursor-pointer">
-          <img 
-            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=120&h=80&fit=crop" 
-            alt="Agriculture preview"
-            className="w-20 h-12 object-cover rounded border-2 border-white/30 group-hover:border-white transition-all duration-300"
-          />
-          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-              Agriculture
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* Slide Indicators */}

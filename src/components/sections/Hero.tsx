@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -8,31 +7,31 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=1080&fit=crop",
+      image: "/lovable-uploads/ef8d2ce7-54b7-4d97-aebc-168d42cee8f9.png",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
-      previewImage: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&h=200&fit=crop"
+      previewImage: "/lovable-uploads/ef8d2ce7-54b7-4d97-aebc-168d42cee8f9.png"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop",
+      image: "/lovable-uploads/891fe827-54d4-4bc2-a8dd-191d5e7fbef5.png",
       title: "LUCODER",
       subtitle: "Justice et sécurité",
-      previewImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop"
+      previewImage: "/lovable-uploads/891fe827-54d4-4bc2-a8dd-191d5e7fbef5.png"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1920&h=1080&fit=crop",
+      image: "/lovable-uploads/57d14119-1a5d-4c45-b167-91b53debb687.png",
       title: "LUCODER",
       subtitle: "Congo pacifié",
-      previewImage: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=300&h=200&fit=crop"
+      previewImage: "/lovable-uploads/57d14119-1a5d-4c45-b167-91b53debb687.png"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=1920&h=1080&fit=crop",
+      image: "/lovable-uploads/28e71d98-6a9f-4c37-be52-41124f701331.png",
       title: "LUCODER",
       subtitle: "Avenir rural",
-      previewImage: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop"
+      previewImage: "/lovable-uploads/28e71d98-6a9f-4c37-be52-41124f701331.png"
     }
   ];
 

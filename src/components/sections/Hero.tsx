@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -8,31 +7,31 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "/lovable-uploads/94c2347d-faf8-4053-87c6-2cff10d8b1bc.png",
+      image: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
-      previewImage: "/lovable-uploads/94c2347d-faf8-4053-87c6-2cff10d8b1bc.png"
+      previewImage: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-      image: "/lovable-uploads/891fe827-54d4-4bc2-a8dd-191d5e7fbef5.png",
+      image: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png",
       title: "LUCODER",
       subtitle: "Justice et sécurité",
-      previewImage: "/lovable-uploads/891fe827-54d4-4bc2-a8dd-191d5e7fbef5.png"
+      previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-      image: "/lovable-uploads/57d14119-1a5d-4c45-b167-91b53debb687.png",
+      image: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png",
       title: "LUCODER",
       subtitle: "Congo pacifié",
-      previewImage: "/lovable-uploads/57d14119-1a5d-4c45-b167-91b53debb687.png"
+      previewImage: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-      image: "/lovable-uploads/28e71d98-6a9f-4c37-be52-41124f701331.png",
+      image: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png",
       title: "LUCODER",
       subtitle: "Avenir rural",
-      previewImage: "/lovable-uploads/28e71d98-6a9f-4c37-be52-41124f701331.png"
+      previewImage: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png"
     }
   ];
 

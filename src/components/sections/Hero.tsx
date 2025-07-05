@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,10 +8,10 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "/lovable-uploads/ef8d2ce7-54b7-4d97-aebc-168d42cee8f9.png",
+      image: "/lovable-uploads/94c2347d-faf8-4053-87c6-2cff10d8b1bc.png",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
-      previewImage: "/lovable-uploads/ef8d2ce7-54b7-4d97-aebc-168d42cee8f9.png"
+      previewImage: "/lovable-uploads/94c2347d-faf8-4053-87c6-2cff10d8b1bc.png"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
@@ -121,37 +122,44 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images at bottom right - Larger size with overlay text - Now visible on medium screens */}
-      <div className="absolute bottom-8 right-8 hidden md:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+      {/* Preview Images débordant dans l'image principale */}
+      <div className="absolute bottom-0 right-8 hidden md:flex space-x-3 animate-slide-in-right transform translate-y-1/2" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
             key={index}
             className={`relative group cursor-pointer transition-all duration-300 ${
-              index === currentSlide ? 'scale-105 opacity-100' : 'opacity-80 hover:opacity-100'
+              index === currentSlide ? 'scale-110 z-20' : 'opacity-80 hover:opacity-100 z-10'
             }`}
             onClick={() => setCurrentSlide(index)}
           >
-            <img 
-              src={item.previewImage}
-              alt={`Preview ${index + 1}`}
-              className={`w-36 h-24 md:w-32 md:h-20 lg:w-36 lg:h-24 object-cover rounded border-2 transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'border-orange-400 shadow-lg shadow-orange-400/50' 
-                  : 'border-white/30 group-hover:border-white'
-              }`}
-            />
-            
-            {/* Slogan overlay */}
-            <div className="absolute inset-0 bg-black/60 rounded flex items-center justify-center p-2">
-              <p className="text-white text-xs text-center leading-tight font-medium">
-                {item.slogan.length > 35 ? item.slogan.substring(0, 35) + '...' : item.slogan}
-              </p>
+            <div className="relative">
+              <img 
+                src={item.previewImage}
+                alt={`Preview ${index + 1}`}
+                className={`w-40 h-28 md:w-36 md:h-24 lg:w-40 lg:h-28 object-cover rounded-lg border-3 transition-all duration-300 shadow-lg ${
+                  index === currentSlide 
+                    ? 'border-orange-400 shadow-orange-400/50' 
+                    : 'border-white/50 group-hover:border-white shadow-black/30'
+                }`}
+              />
+              
+              {/* Overlay avec titre */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg flex items-end p-3">
+                <div className="text-white">
+                  <p className="text-sm font-bold">
+                    {index === 0 ? "1996" : index === 1 ? "KIVU" : index === 2 ? "CONGO" : "LOCAL"}
+                  </p>
+                  <p className="text-xs opacity-90 mt-1">
+                    {item.subtitle}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Active indicator */}
+              {index === currentSlide && (
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-orange-400 rounded-full border-2 border-white"></div>
+              )}
             </div>
-            
-            {/* Active indicator */}
-            {index === currentSlide && (
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rounded-full"></div>
-            )}
           </div>
         ))}
       </div>

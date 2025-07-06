@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -10,28 +9,28 @@ export const ActionsPreview = () => {
       icon: Users,
       title: "Formations et réinsertion socio-économique",
       description: "Formations professionnelles en coupe et couture, menuiserie, mécanique, agriculture, élevage. Réinsertion des jeunes en situation de rue et ex-combattants.",
-      image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/5e398f0f-73fa-4e2f-93fc-3be61d37196b.png",
       color: "purple"
     },
     {
       icon: Heart,
       title: "Santé communautaire et bien-être",
       description: "Réhabilitation de centres de santé, formations du personnel médical, campagnes de sensibilisation, santé reproductive et soutien psychosocial.",
-      image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/11ecf94c-2763-4ddf-ae41-2d4a11b3a97c.png",
       color: "red"
     },
     {
       icon: Droplets,
       title: "Eau, Hygiène et Assainissement (WASH)",
       description: "Réhabilitation de sources d'eau potable, construction de latrines, sensibilisation aux bonnes pratiques d'hygiène.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/76a817a4-0a5c-4204-8a21-aa818f5b33ba.png",
       color: "cyan"
     },
     {
       icon: Wheat,
       title: "Développement rural et sécurité alimentaire",
       description: "Appui à la production agricole, formation en techniques agro-écologiques, promotion de l'élevage, transformation des produits.",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/e457d18d-c496-42f0-9015-dbca68003619.png",
       color: "amber"
     }
   ];

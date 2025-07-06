@@ -8,7 +8,7 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
+      image: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
       previewImage: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png"
@@ -76,13 +76,9 @@ export const Hero = () => {
             <div className="text-sm font-medium text-blue-300 mb-2 tracking-wide">
               INSIDE THE
             </div>
-            <div className="mb-4">
-              <img
-                src="/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png"
-                alt="LUCODER Logo"
-                className="h-20 w-auto object-contain"
-              />
-            </div>
+            <h1 className="text-6xl md:text-8xl font-bold mb-4 leading-none">
+              LUCODER
+            </h1>
             <div className="text-xl md:text-2xl font-medium mb-6 text-blue-200">
               {currentData.subtitle}
             </div>
@@ -100,7 +96,7 @@ export const Hero = () => {
                 Faire un don <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-900 bg-transparent">
+            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-900">
               <Link to="/qui-sommes-nous">En savoir plus</Link>
             </Button>
           </div>

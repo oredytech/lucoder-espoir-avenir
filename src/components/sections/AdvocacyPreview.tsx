@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -10,19 +9,19 @@ export const AdvocacyPreview = () => {
       icon: Shield,
       title: "Droits humains et protection",
       description: "Lutter contre le VBG, la traite des enfants, les arrestations arbitraires, et exiger justice pour les survivants.",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=250&fit=crop"
+      image: "/lovable-uploads/99198f2b-0fac-4d03-a5ef-13a64cc7614e.png"
     },
     {
       icon: Heart,
       title: "Santé et bien-être communautaire", 
       description: "Revendiquer un meilleur accès aux soins, à la santé mentale, et aux infrastructures médicales en milieu rural.",
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=400&h=250&fit=crop"
+      image: "/lovable-uploads/3b9aafc5-a707-4da0-8df4-dd6c90d3ed5c.png"
     },
     {
       icon: GraduationCap,
       title: "Éducation pour tous",
       description: "Mobiliser les autorités pour des écoles accessibles, sûres et inclusives pour les filles, enfants déplacés et enfants handicapés.",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=250&fit=crop"
+      image: "/lovable-uploads/620e1890-088e-4945-aa78-7398dfe80e56.png"
     }
   ];
 

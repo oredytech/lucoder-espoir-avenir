@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -121,8 +122,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Preview Images débordant dans l'image principale */}
-      <div className="absolute bottom-0 right-8 hidden md:flex space-x-3 animate-slide-in-right transform translate-y-1/2" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+      {/* Preview Images - Removed overflow effect, now positioned normally */}
+      <div className="absolute bottom-8 right-8 hidden md:flex space-x-3 animate-slide-in-right" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
         {heroData.map((item, index) => (
           <div 
             key={index}

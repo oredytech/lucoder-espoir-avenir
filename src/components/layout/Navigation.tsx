@@ -2,11 +2,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const navItems = [
     { href: "/", label: "Accueil" },
@@ -28,9 +30,12 @@ export const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Sur les autres pages que l'accueil, toujours avoir un arrière-plan
+  const hasBackground = !isHomePage || isScrolled;
+
   return (
     <nav className={`fixed top-0 w-full transition-all duration-300 border-b border-white/20 z-50 ${
-      isScrolled 
+      hasBackground
         ? 'bg-blue-900/95 backdrop-blur-md' 
         : 'bg-transparent backdrop-blur-sm'
     }`}>

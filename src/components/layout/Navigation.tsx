@@ -49,8 +49,8 @@ export const Navigation = () => {
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Menu - Now starts at xl screens */}
+          <div className="hidden xl:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -68,32 +68,48 @@ export const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button - Now visible on medium screens */}
+          {/* Medium screens compact menu */}
+          <div className="hidden lg:flex xl:hidden items-center space-x-4">
+            {navItems.slice(0, 4).map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className="text-white/90 hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white hover:bg-white/10 text-xs"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Plus <Menu className="ml-1 h-4 w-4" />
+            </Button>
+            <Button 
+              asChild 
+              size="sm"
+              className="bg-orange-500 hover:bg-orange-600 text-white text-xs uppercase tracking-wide"
+            >
+              <Link to="/faire-un-don">Don</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-white hover:bg-white/10"
+            className="lg:hidden text-white hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
-
-          {/* Medium screens menu */}
-          <div className="hidden md:flex lg:hidden items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:bg-white/10"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
         </div>
 
         {/* Mobile and Medium screens Menu */}
         {isOpen && (
-          <div className="md:block lg:hidden">
+          <div className="xl:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-blue-900/95 backdrop-blur-sm border-t border-white/20">
               {navItems.map((item) => (
                 <Link

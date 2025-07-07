@@ -1,56 +1,68 @@
 
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, Tag, ArrowRight } from "lucide-react";
+import { 
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { ShareContextMenu } from "@/components/blog/ShareContextMenu";
+import { Calendar, User, ArrowRight, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { wordpressApi, WordPressCategory } from "@/services/wordpress";
 
 const Blog = () => {
-  const articles = [
-    {
-      id: 1,
-      title: "L'impact de nos formations professionnelles sur la jeunesse du Kivu",
-      excerpt: "Découvrez comment nos programmes de formation transforment la vie des jeunes en leur offrant des compétences durables.",
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop",
-      date: "15 Mars 2024",
-      author: "Équipe LUCODER",
-      category: "Formation",
-      slug: "impact-formations-jeunesse-kivu"
-    },
-    {
-      id: 2,
-      title: "Réhabilitation du centre de santé de Sake : un projet qui sauve des vies",
-      excerpt: "Retour sur la réhabilitation complète du centre de santé de Sake et son impact sur la communauté locale.",
-      image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=600&h=300&fit=crop",
-      date: "28 Février 2024",
-      author: "Dr. Marie Mukamana",
-      category: "Santé",
-      slug: "rehabilitation-centre-sante-sake"
-    },
-    {
-      id: 3,
-      title: "Journée mondiale de l'environnement 2024 : nos actions à Goma",
-      excerpt: "Retour sur nos activités de sensibilisation et de reboisement organisées lors de la journée mondiale de l'environnement.",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=300&fit=crop",
-      date: "5 Juin 2024",
-      author: "Jean-Baptiste Nzeyimana",
-      category: "Environnement",
-      slug: "journee-mondiale-environnement-2024"
-    },
-    {
-      id: 4,
-      title: "Comment nos programmes WASH transforment les communautés rurales",
-      excerpt: "L'accès à l'eau potable et à l'assainissement change la donne dans nos zones d'intervention.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=300&fit=crop",
-      date: "22 Janvier 2024",
-      author: "Sarah Uwimana",
-      category: "WASH",
-      slug: "programmes-wash-communautes-rurales"
-    }
-  ];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const postsPerPage = 9;
 
-  const categories = ["Toutes", "Formation", "Santé", "Environnement", "WASH", "Plaidoyer"];
+  // Récupération des catégories
+  const { data: categories } = useQuery({
+    queryKey: ['wordpress-categories'],
+    queryFn: wordpressApi.getCategories,
+  });
+
+  // Récupération des articles
+  const { data: posts, isLoading, error } = useQuery({
+    queryKey: ['wordpress-posts', currentPage, selectedCategory, searchTerm],
+    queryFn: () => wordpressApi.getPosts({
+      page: currentPage,
+      per_page: postsPerPage,
+      categories: selectedCategory,
+      search: searchTerm || undefined,
+    }),
+    refetchOnWindowFocus: false,
+  });
+
+  const handleCategoryChange = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (search: string) => {
+    setSearchTerm(search);
+    setCurrentPage(1);
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const stripHtml = (html: string) => {
+    return html.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+  };
 
   return (
     <div className="min-h-screen">
@@ -67,17 +79,37 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Filtres par catégorie */}
+        {/* Barre de recherche et filtres */}
         <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
+            {/* Barre de recherche */}
+            <div className="max-w-md mx-auto mb-6">
+              <input
+                type="text"
+                placeholder="Rechercher un article..."
+                value={searchTerm}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            {/* Filtres par catégorie */}
             <div className="flex flex-wrap justify-center gap-4">
-              {categories.map((category, index) => (
+              <Button
+                variant={selectedCategory === "" ? "default" : "outline"}
+                onClick={() => handleCategoryChange("")}
+                className={selectedCategory === "" ? "bg-blue-600 hover:bg-blue-700" : ""}
+              >
+                Toutes
+              </Button>
+              {categories?.map((category: WordPressCategory) => (
                 <Button
-                  key={index}
-                  variant={index === 0 ? "default" : "outline"}
-                  className={index === 0 ? "bg-blue-600 hover:bg-blue-700" : ""}
+                  key={category.id}
+                  variant={selectedCategory === category.id.toString() ? "default" : "outline"}
+                  onClick={() => handleCategoryChange(category.id.toString())}
+                  className={selectedCategory === category.id.toString() ? "bg-blue-600 hover:bg-blue-700" : ""}
                 >
-                  {category}
+                  {category.name} ({category.count})
                 </Button>
               ))}
             </div>
@@ -87,67 +119,141 @@ const Blog = () => {
         {/* Articles du blog */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((article, index) => (
-                <Card 
-                  key={article.id} 
-                  className="group hover:shadow-xl transition-all duration-300 hover-scale animate-fade-in"
-                  style={{ 
-                    animationDelay: `${index * 0.1}s`, 
-                    animationFillMode: 'both' 
-                  }}
-                >
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={article.image} 
-                      alt={article.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        {article.category}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <CardHeader>
-                    <div className="flex items-center text-sm text-gray-500 mb-2 space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{article.date}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <User className="h-4 w-4" />
-                        <span>{article.author}</span>
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {article.title}
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent>
-                    <p className="text-gray-600 line-clamp-3 mb-4">{article.excerpt}</p>
-                    <Button asChild variant="ghost" className="p-0 h-auto text-blue-600 hover:text-blue-700">
-                      <Link to={`/blog/${article.slug}`} className="inline-flex items-center">
-                        Lire la suite <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Pagination */}
-            <div className="flex justify-center mt-12">
-              <div className="flex space-x-2">
-                <Button variant="outline">Précédent</Button>
-                <Button className="bg-blue-600 hover:bg-blue-700">1</Button>
-                <Button variant="outline">2</Button>
-                <Button variant="outline">3</Button>
-                <Button variant="outline">Suivant</Button>
+            {isLoading && (
+              <div className="flex justify-center items-center py-12">
+                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <span className="ml-2 text-gray-600">Chargement des articles...</span>
               </div>
-            </div>
+            )}
+
+            {error && (
+              <div className="text-center py-12">
+                <p className="text-red-600">Erreur lors du chargement des articles</p>
+                <Button 
+                  onClick={() => window.location.reload()} 
+                  className="mt-4 bg-blue-600 hover:bg-blue-700"
+                >
+                  Réessayer
+                </Button>
+              </div>
+            )}
+
+            {posts && posts.length === 0 && !isLoading && (
+              <div className="text-center py-12">
+                <p className="text-gray-600">Aucun article trouvé</p>
+              </div>
+            )}
+
+            {posts && posts.length > 0 && (
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {posts.map((post, index) => {
+                    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0];
+                    const author = post._embedded?.author?.[0];
+
+                    return (
+                      <ShareContextMenu key={post.id} title={post.title.rendered}>
+                        <Card 
+                          className="group hover:shadow-xl transition-all duration-300 hover-scale animate-fade-in cursor-context-menu"
+                          style={{ 
+                            animationDelay: `${index * 0.1}s`, 
+                            animationFillMode: 'both' 
+                          }}
+                        >
+                          <div className="relative overflow-hidden">
+                            {featuredImage ? (
+                              <img 
+                                src={featuredImage.source_url} 
+                                alt={featuredImage.alt_text || post.title.rendered}
+                                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-48 bg-gradient-to-r from-blue-100 to-blue-200 flex items-center justify-center">
+                                <span className="text-blue-600 font-medium">LUCODER</span>
+                              </div>
+                            )}
+                            {post.categories && post.categories.length > 0 && categories && (
+                              <div className="absolute top-4 left-4">
+                                <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                  {categories.find(cat => cat.id === post.categories[0])?.name || 'Actualité'}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <CardHeader>
+                            <div className="flex items-center text-sm text-gray-500 mb-2 space-x-4">
+                              <div className="flex items-center space-x-1">
+                                <Calendar className="h-4 w-4" />
+                                <span>{formatDate(post.date)}</span>
+                              </div>
+                              {author && (
+                                <div className="flex items-center space-x-1">
+                                  <User className="h-4 w-4" />
+                                  <span>{author.name}</span>
+                                </div>
+                              )}
+                            </div>
+                            <CardTitle className="text-xl line-clamp-2 group-hover:text-blue-600 transition-colors">
+                              <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                            </CardTitle>
+                          </CardHeader>
+                          
+                          <CardContent>
+                            <p className="text-gray-600 line-clamp-3 mb-4">
+                              {stripHtml(post.excerpt.rendered)}
+                            </p>
+                            <Button asChild variant="ghost" className="p-0 h-auto text-blue-600 hover:text-blue-700">
+                              <Link to={`/blog/${post.slug}`} className="inline-flex items-center">
+                                Lire la suite <ArrowRight className="ml-1 h-4 w-4" />
+                              </Link>
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      </ShareContextMenu>
+                    );
+                  })}
+                </div>
+
+                {/* Pagination */}
+                {posts.length === postsPerPage && (
+                  <div className="flex justify-center mt-12">
+                    <Pagination>
+                      <PaginationContent>
+                        <PaginationItem>
+                          <PaginationPrevious 
+                            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                            className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                          />
+                        </PaginationItem>
+                        
+                        {[...Array(Math.min(5, Math.max(1, Math.ceil(50 / postsPerPage))))].map((_, i) => {
+                          const pageNum = i + Math.max(1, currentPage - 2);
+                          return (
+                            <PaginationItem key={pageNum}>
+                              <PaginationLink
+                                onClick={() => setCurrentPage(pageNum)}
+                                isActive={currentPage === pageNum}
+                                className="cursor-pointer"
+                              >
+                                {pageNum}
+                              </PaginationLink>
+                            </PaginationItem>
+                          );
+                        })}
+                        
+                        <PaginationItem>
+                          <PaginationNext 
+                            onClick={() => setCurrentPage(currentPage + 1)}
+                            className="cursor-pointer"
+                          />
+                        </PaginationItem>
+                      </PaginationContent>
+                    </Pagination>
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </section>
 

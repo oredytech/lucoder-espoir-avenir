@@ -49,9 +49,7 @@ export const Hero = () => {
         {/* Left Content */}
         <div className="text-white space-y-6 max-w-2xl">
           <div className="animate-fade-in">
-            <div className="text-sm font-medium text-blue-300 mb-2 tracking-wide">
-              INSIDE THE
-            </div>
+            
             
             <div className="text-xl md:text-2xl font-medium mb-6 text-blue-200">
               {currentData.subtitle}

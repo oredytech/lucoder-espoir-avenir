@@ -13,6 +13,7 @@ import Partenariat from "./pages/Partenariat";
 import FaireUnDon from "./pages/FaireUnDon";
 import ContactPage from "./pages/Contact";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,7 +34,7 @@ const App = () => (
           <Route path="/faire-un-don" element={<FaireUnDon />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -15,21 +15,21 @@ export const Hero = () => {
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
+      image: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png",
       title: "LUCODER",
       subtitle: "Justice et sécurité",
       previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
+      image: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png",
       title: "LUCODER",
       subtitle: "Congo pacifié",
       previewImage: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
+      image: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png",
       title: "LUCODER",
       subtitle: "Avenir rural",
       previewImage: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png"
@@ -59,13 +59,11 @@ export const Hero = () => {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className="w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center">
-              <img 
-                src={item.image}
-                alt={`Logo LUCODER ${index + 1}`}
-                className="max-w-md max-h-md object-contain opacity-20"
-              />
-            </div>
+            <img 
+              src={item.image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent"></div>
           </div>
         ))}
@@ -78,9 +76,13 @@ export const Hero = () => {
             <div className="text-sm font-medium text-blue-300 mb-2 tracking-wide">
               INSIDE THE
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold mb-4 leading-none">
-              LUCODER
-            </h1>
+            <div className="mb-4">
+              <img
+                src="/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png"
+                alt="LUCODER Logo"
+                className="h-20 w-auto object-contain"
+              />
+            </div>
             <div className="text-xl md:text-2xl font-medium mb-6 text-blue-200">
               {currentData.subtitle}
             </div>
@@ -98,7 +100,7 @@ export const Hero = () => {
                 Faire un don <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-900">
+            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-900 bg-transparent">
               <Link to="/qui-sommes-nous">En savoir plus</Link>
             </Button>
           </div>

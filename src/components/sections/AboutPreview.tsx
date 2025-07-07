@@ -15,13 +15,15 @@ export const AboutPreview = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image avec animation */}
+          {/* Logo avec animation */}
           <div className="animate-fade-in hover-scale">
-            <img 
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop" 
-              alt="Communauté au Kivu"
-              className="rounded-lg shadow-xl w-full"
-            />
+            <div className="bg-white rounded-lg shadow-xl p-8 flex items-center justify-center h-96">
+              <img 
+                src="/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png"
+                alt="Logo LUCODER"
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
             
             {/* Statistiques overlays */}
             <div className="grid grid-cols-3 gap-4 mt-6">

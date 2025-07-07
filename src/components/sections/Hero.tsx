@@ -8,28 +8,28 @@ export const Hero = () => {
   const heroData = [
     {
       slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-      image: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png",
+      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
       title: "LUCODER",
       subtitle: "Reconstruire l'avenir",
       previewImage: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png"
     },
     {
       slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-      image: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png",
+      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
       title: "LUCODER",
       subtitle: "Justice et sécurité",
       previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
     },
     {
       slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-      image: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png",
+      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
       title: "LUCODER",
       subtitle: "Congo pacifié",
       previewImage: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png"
     },
     {
       slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-      image: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png",
+      image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
       title: "LUCODER",
       subtitle: "Avenir rural",
       previewImage: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png"
@@ -59,11 +59,13 @@ export const Hero = () => {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img 
-              src={item.image}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
+            <div className="w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center">
+              <img 
+                src={item.image}
+                alt={`Logo LUCODER ${index + 1}`}
+                className="max-w-md max-h-md object-contain opacity-20"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent"></div>
           </div>
         ))}

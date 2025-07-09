@@ -64,13 +64,15 @@ export const ContactPreview = () => {
             </Card>
           </div>
 
-          {/* Image et call to action */}
+          {/* Logo et call to action */}
           <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-            <img 
-              src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop" 
-              alt="Équipe LUCODER"
-              className="w-full rounded-lg shadow-xl mb-6 hover-scale"
-            />
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/lovable-uploads/891fe827-54d4-4bc2-a8dd-191d5e7fbef5.png" 
+                alt="Logo LUCODER"
+                className="w-48 h-48 object-contain hover-scale"
+              />
+            </div>
             <h3 className="text-2xl font-bold text-slate-800 mb-4">Prêts à vous écouter</h3>
             <p className="text-slate-600 mb-6">
               Notre équipe répond sous 48 heures à toutes vos questions et propositions.

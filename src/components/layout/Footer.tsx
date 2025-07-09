@@ -56,7 +56,7 @@ export const Footer = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2025 LUCODER ASBL. Tous droits réservés. | ONG reconnue par les autorités compétentes de la RDC
+            © 2025 LUCODER ASBL. Tous droits réservés. | Fièrement conçu par <a href="https://oredytech.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Oredy TECHNOLOGIES</a>
           </p>
         </div>
       </div>

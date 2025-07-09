@@ -1,4 +1,3 @@
-
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Navigation } from "@/components/layout/Navigation";
@@ -93,7 +92,7 @@ const BlogPost = () => {
               <header className="mb-12">
                 <ShareContextMenu title={post.title.rendered}>
                   <h1 
-                    className="text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight cursor-context-menu tracking-tight"
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight cursor-context-menu tracking-tight"
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                   />
                 </ShareContextMenu>
@@ -137,7 +136,29 @@ const BlogPost = () => {
               </header>
 
               {/* Contenu de l'article avec typographie améliorée */}
-              <div className="prose prose-xl max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-headings:tracking-tight prose-h1:text-5xl prose-h1:mb-12 prose-h1:mt-16 prose-h1:leading-tight prose-h1:font-black prose-h2:text-4xl prose-h2:mb-10 prose-h2:mt-16 prose-h2:leading-tight prose-h2:font-bold prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-4 prose-h3:text-3xl prose-h3:mb-8 prose-h3:mt-12 prose-h3:leading-tight prose-h3:font-bold prose-h4:text-2xl prose-h4:mb-6 prose-h4:mt-10 prose-h4:font-semibold prose-h5:text-xl prose-h5:mb-5 prose-h5:mt-8 prose-h5:font-semibold prose-h6:text-lg prose-h6:mb-4 prose-h6:mt-6 prose-h6:font-medium prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-8 prose-p:text-lg prose-p:font-light prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-strong:text-gray-900 prose-strong:font-bold prose-em:text-gray-600 prose-em:italic prose-blockquote:border-l-8 prose-blockquote:border-blue-500 prose-blockquote:pl-10 prose-blockquote:py-8 prose-blockquote:bg-blue-50 prose-blockquote:rounded-r-xl prose-blockquote:my-12 prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-blockquote:text-xl prose-blockquote:font-medium prose-blockquote:shadow-lg prose-ul:my-8 prose-ul:space-y-3 prose-ol:my-8 prose-ol:space-y-3 prose-li:text-gray-700 prose-li:leading-relaxed prose-li:text-lg prose-img:rounded-xl prose-img:shadow-xl prose-img:my-12 prose-code:bg-gray-100 prose-code:px-3 prose-code:py-2 prose-code:rounded-lg prose-code:text-base prose-code:font-mono prose-pre:bg-gray-900 prose-pre:text-white prose-pre:rounded-xl prose-pre:p-6 prose-pre:my-10 prose-pre:overflow-x-auto prose-pre:shadow-xl prose-hr:border-gray-300 prose-hr:my-16 prose-hr:border-t-2 prose-table:my-12 prose-table:border-collapse prose-table:border prose-table:border-gray-300 prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-lg prose-th:bg-gray-50 prose-th:border prose-th:border-gray-300 prose-th:px-6 prose-th:py-4 prose-th:font-bold prose-th:text-left prose-td:border prose-td:border-gray-300 prose-td:px-6 prose-td:py-4">
+              <div className="prose prose-xl max-w-none
+                prose-headings:text-gray-900 prose-headings:font-bold prose-headings:tracking-tight
+                prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-12 prose-h1:leading-tight prose-h1:font-black prose-h1:border-b prose-h1:border-gray-200 prose-h1:pb-6
+                prose-h2:text-3xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:leading-tight prose-h2:font-bold prose-h2:text-blue-800
+                prose-h3:text-2xl prose-h3:mb-5 prose-h3:mt-10 prose-h3:leading-tight prose-h3:font-bold prose-h3:text-blue-700
+                prose-h4:text-xl prose-h4:mb-4 prose-h4:mt-8 prose-h4:font-semibold prose-h4:text-blue-600
+                prose-h5:text-lg prose-h5:mb-3 prose-h5:mt-6 prose-h5:font-semibold prose-h5:text-blue-500
+                prose-h6:text-base prose-h6:mb-3 prose-h6:mt-6 prose-h6:font-medium prose-h6:text-blue-400
+                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg prose-p:font-normal prose-p:tracking-wide
+                prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-a:transition-all
+                prose-strong:text-gray-900 prose-strong:font-bold
+                prose-em:text-gray-600 prose-em:italic
+                prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-8 prose-blockquote:py-6 prose-blockquote:bg-blue-50 prose-blockquote:rounded-r-lg prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-gray-800 prose-blockquote:text-xl prose-blockquote:font-medium prose-blockquote:shadow-sm prose-blockquote:italic
+                prose-ul:my-6 prose-ul:space-y-2 prose-ul:pl-6
+                prose-ol:my-6 prose-ol:space-y-2 prose-ol:pl-6
+                prose-li:text-gray-700 prose-li:leading-relaxed prose-li:text-lg prose-li:mb-2
+                prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8 prose-img:mx-auto
+                prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:text-red-600
+                prose-pre:bg-gray-900 prose-pre:text-white prose-pre:rounded-xl prose-pre:p-6 prose-pre:my-8 prose-pre:overflow-x-auto prose-pre:shadow-lg
+                prose-hr:border-gray-300 prose-hr:my-12 prose-hr:border-t-2
+                prose-table:my-8 prose-table:border-collapse prose-table:border prose-table:border-gray-300 prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-md
+                prose-th:bg-gray-50 prose-th:border prose-th:border-gray-300 prose-th:px-4 prose-th:py-3 prose-th:font-bold prose-th:text-left prose-th:text-gray-900
+                prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-3 prose-td:text-gray-700">
                 <div 
                   dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                 />

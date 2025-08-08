@@ -12,13 +12,13 @@ export const Gallery = () => {
       title: "Réinsertion des jeunes en milieu rural",
       duration: "6:30 min",
       description: "Une immersion dans les projets de réinsertion socio-économique des jeunes de Nyanzale, activité qui transforme la vie des jeunes ex-délinquants de Bwito/Nord-Kivu.",
-      thumbnail: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?w=400&h=300&fit=crop"
+      thumbnail: "/lovable-uploads/11ecf94c-2763-4ddf-ae41-2d4a11b3a97c.png"
     },
     {
       title: "Journée mondiale de l'environnement 2023 à Goma",
       duration: "4:15 min",
       description: "Célébration de la journée mondiale de l'environnement avec nos actions de reboisement et sensibilisation communautaire.",
-      thumbnail: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=300&fit=crop"
+      thumbnail: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png"
     }
   ];
 
@@ -27,19 +27,19 @@ export const Gallery = () => {
       title: "Santé communautaire & Bien-être",
       count: "10 photos",
       description: "Construction centre de santé de SAKE, formation du personnel de santé, distribution des kits médicaux, sensibilisations santé.",
-      cover: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400&h=300&fit=crop"
+      cover: "/lovable-uploads/28e71d98-6a9f-4c37-be52-41124f701331.png"
     },
     {
       title: "Développement communautaire & sécurité alimentaire",
       count: "20 photos",
       description: "Élevage des poissons, élevages des porcs, construction d'un moulin hydraulique à Lushebere...",
-      cover: "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=400&h=300&fit=crop"
+      cover: "/lovable-uploads/3b9aafc5-a707-4da0-8df4-dd6c90d3ed5c.png"
     },
     {
       title: "Célébrations & plaidoyers",
       count: "7 photos",
       description: "Journées mondiales sur l'environnement, panels, actions publiques",
-      cover: "https://images.unsplash.com/photo-1518877593221-1f28583780b4?w=400&h=300&fit=crop"
+      cover: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png"
     }
   ];
 

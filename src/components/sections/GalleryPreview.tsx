@@ -6,19 +6,19 @@ import { Camera, Video, Image as ImageIcon } from "lucide-react";
 export const GalleryPreview = () => {
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+      url: "/lovable-uploads/57d14119-1a5d-4c45-b167-91b53debb687.png",
       title: "Formation agricole"
     },
     {
-      url: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=300&fit=crop",
+      url: "/lovable-uploads/5e398f0f-73fa-4e2f-93fc-3be61d37196b.png",
       title: "Santé communautaire"
     },
     {
-      url: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
+      url: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
       title: "Infrastructure WASH"
     },
     {
-      url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      url: "/lovable-uploads/620e1890-088e-4945-aa78-7398dfe80e56.png",
       title: "Développement rural"
     }
   ];

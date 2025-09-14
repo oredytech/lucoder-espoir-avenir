@@ -8,7 +8,7 @@ export const Hero = () => {
     image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
     title: "LUCODER",
     subtitle: "Reconstruire l'avenir",
-    previewImage: "/lovable-uploads/161edd92-869c-4532-b108-d60410f6b378.png"
+    previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
   }, {
     slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
     image: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png",

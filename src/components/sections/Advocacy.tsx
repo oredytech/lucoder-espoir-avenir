@@ -37,7 +37,7 @@ export const Advocacy = () => {
   ];
 
   const objectives = [
-    "Protéger les droits fondamentaux des femmes, des enfants, des jeunes et des personnes vulnérables",
+    "Protéger les droits fondamentaux des femmes et enfants, des jeunes et des personnes vulnérables",
     "Influencer les politiques publiques en faveur du développement rural, de l'accès aux soins, à l'éducation et à l'eau potable",
     "Combattre les causes structurelles de la délinquance, de l'exode rural, de l'exploitation des enfants et des violences sexuelles",
     "Promouvoir la paix, la justice sociale et la cohésion intercommunautaire",

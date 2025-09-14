@@ -3,29 +3,25 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export const About = () => {
   const values = [
     {
-      title: "Engagement communautaire",
-      description: "Nous croyons que les solutions durables viennent des communautés elles-mêmes. LUCODER agit avec, pour et au cœur des populations locales."
+      title: "Équité",
+      description: "Nous traitons tous nos bénéficiaires avec égalité d’accès à nos aides et nos agents travaillent aussi jouissant tous d’un leadership collectif."
     },
     {
-      title: "Solidarité",
-      description: "Nous plaçons l'humain au centre. Face à la souffrance, nous répondons avec compassion, entraide et esprit de fraternité."
+      title: "Honnété",
+      description: "Nous croyons que l’honnêteté est la plus grande qualité d’un humanitaire, sans laquelle, celui-ci ne saura apporter assistance à la vraie cible du projet et manquera à atteindre l’ultime objectif de son action."
     },
     {
-      title: "Responsabilité",
-      description: "Nous travaillons avec rigueur, transparence et éthique. Nous rendons compte de nos actions à nos bénéficiaires, partenaires et à la société."
+      title: "Redevabilité",
+      description: "Dans toutes nos interventions, nous prenons en compte les opinions des différentes parties prenantes en leur donnant la possibilité de nous demander de compte sur la prise de décision ou les actions les concernant."
     },
     {
-      title: "Résilience",
-      description: "Face aux conflits, catastrophes, pauvreté et injustice, nous croyons à la capacité des communautés à se relever et bâtir un avenir meilleur."
+      title: "Transparence",
+      description: "Les agents de LUCODER communiquent ouvertement tous les processus des activités du projet et doivent s’assurer que toutes les informations pertinentes sont transmises de façon adéquate aux personnes touchées par la crise et aux autres parties prenantes."
     },
     {
-      title: "Paix et cohésion sociale",
-      description: "Nos actions favorisent le vivre-ensemble, la tolérance et la non-violence, fondement d'une société stable et inclusive."
+      title: "Impartialité",
+      description: "LUCODER mène son action humanitaire ou de développement, sur la seule base des besoins prioritaires, en donnant priorité aux cas de détresses les plus urgents sans distinction de nationalité, de race, de croyance religieuse, des origines, de classe ou d’opinion politique."
     },
-    {
-      title: "Équité et inclusion",
-      description: "Nous refusons toute forme de discrimination. Nous donnons la priorité aux plus vulnérables, sans distinction d'âge, de sexe, d'origine ou de statut."
-    }
   ];
 
   const objectives = [
@@ -55,13 +51,13 @@ export const About = () => {
             </CardHeader>
             <CardContent className="text-gray-700 leading-relaxed space-y-4">
               <p>
-                C'était en 1996, dans les hautes collines verdoyantes du Kivu, que le destin de nombreuses vies allait discrètement changer. Plus de deux décennies après l'arrivée massive des réfugiés rwandais fuyant le génocide de 1994, l'Est du Zaïre (aujourd'hui RDC) restait profondément bouleversé par les conflits, les déplacements, la pauvreté et la montée inquiétante de la délinquance juvénile.
+                C'était en 1996, dans les hautes collines verdoyantes du Kivu, que le destin de nombreuses vies allait discrètement changer. Deux ans après le déclenchement de la guerre intercommunautaire de Ntoto à cheval entre les territoires de Masisi et Walikale et après l'arrivée massive des réfugiés rwandais fuant le génocide de 1994, l'Est du Zaïre (aujourd'hui RDC) restait profondément bouleversé par les conflits interethniques, les déplacements des populations, la pauvreté et la montée inquiétante de la délinquance juvénile.
               </p>
               <p>
-                Un homme, Raphaël VAYIKERYE, fils de la terre et témoin direct de ces douleurs, ne pouvait rester indifférent. Il voyait des enfants livrés à eux-mêmes dans les rues de Goma, des familles entières forcées d'abandonner leurs villages, et des jeunes sans repères glissaient dans la violence ou l'exil.
+                Un homme, Raphaël VAYIKERYE SYAVULIVWA LYUVA, fils de la terre et témoin direct de ces douleurs, ne pouvait rester indifférent. Il voyait des enfants livrés à eux-mêmes dans les rues de Goma, des familles entières forcées d'abandonner leurs villages, et des jeunes sans repères se lançaient dans la violence ou l'exil.
               </p>
               <p>
-                C'est ainsi qu'il eut une idée simple mais puissante : créer une structure locale capable d'apporter une réponse immédiate aux besoins des plus vulnérables, tout en s'attaquant aux causes profondes de la misère. Le 31 janvier 1996, il fonda LUCODER – Lutte Contre la Délinquance et l'Exode Rural.
+                C'est ainsi qu'il eut une idée simple mais puissante : créer une structure locale capable d'apporter une réponse immédiate aux besoins des plus vulnérables, tout en s'attaquant aux causes profondes de la misère. Le 31 janvier 1996, lui et ses collaborateurs fondarent une association sans but lucratif denomée Lutte Contre la Délinquance et l'Exode Rural - LUCODER.
               </p>
               <p>
                 Aujourd'hui, 29 ans plus tard, l'histoire de LUCODER continue d'être écrite, portée par l'héritage visionnaire de son fondateur et par la résilience des communautés qu'elle soutient. Là où beaucoup voyaient un terrain de guerre, LUCODER a vu une terre à cultiver. Une terre où peut pousser la paix.

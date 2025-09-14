@@ -67,7 +67,7 @@ export const About = () => {
         </div>
 
         {/* Mission et Vision */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           <Card>
             <CardHeader>
               <CardTitle className="text-xl text-blue-700">Notre Mission</CardTitle>
@@ -85,7 +85,18 @@ export const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700">
-                Un Congo où chaque jeune, homme & femme, chaque famille rurale ou urbaine, vit dans la dignité, la sécurité et la paix, enraciné dans sa communauté et libre de choisir son avenir.
+                Rassembler les gens, les idées et les actions de façon durable.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl text-blue-700">Notre Cible</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700">
+                Les femmes, jeunes et autres personnes marginalisées (personnes à besoin spécifique, peuples autochtones pygmées, survivants des Violences Basées sur le genre, déplacés/retournés, réfugiés, personnes vivant avec le VIH/Sida, ex-combattants, …).
               </p>
             </CardContent>
           </Card>

@@ -5,28 +5,28 @@ import { ArrowRight, Heart, Users, Shield } from "lucide-react";
 export const Hero = () => {
   const heroData = [{
     slogan: "Nous redonnons un avenir aux jeunes, femmes et hommes victimes des conflits et catastrophes naturelles",
-    image: "/lovable-uploads/600a2e5c-7297-46f1-be2e-136d2bdceefc.png",
+    image: "/lovable-uploads/reconstruire l'avenir.jpg",
     title: "LUCODER",
     subtitle: "Reconstruire l'avenir",
-    previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
+    previewImage: "/lovable-uploads/reconstruire l'avenir.jpg"
   }, {
     slogan: "Sécurité et justice pour la paix durable : lutter contre la délinquance, c'est reconstruire notre pays",
-    image: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png",
+    image: "/lovable-uploads/WhatsApp Image 2025-09-14 à 10.45.59_d23724c9.jpg",
     title: "LUCODER",
     subtitle: "Justice et sécurité",
-    previewImage: "/lovable-uploads/c7656fb0-7d54-41e4-8267-0cd9c8f98085.png"
+    previewImage: "/lovable-uploads/WhatsApp Image 2025-09-14 à 10.45.59_d23724c9.jpg"
   }, {
     slogan: "Ensemble contre la délinquance pour un Congo pacifié",
-    image: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png",
+    image: "/lovable-uploads/congopacifié.jpg",
     title: "LUCODER",
     subtitle: "Congo pacifié",
-    previewImage: "/lovable-uploads/3d5f33af-0777-40bb-bbab-d8beaffade36.png"
+    previewImage: "/lovable-uploads/congopacifié.jpg"
   }, {
     slogan: "Stoppons l'exode rural pour bâtir l'avenir de notre pays",
-    image: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png",
+    image: "/lovable-uploads/avenirrural.jpg",
     title: "LUCODER",
     subtitle: "Avenir rural",
-    previewImage: "/lovable-uploads/80983ed1-ec07-4cf5-bada-b577ab8a2d6d.png"
+    previewImage: "/lovable-uploads/avenirrural.jpg"
   }];
   const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(() => {
